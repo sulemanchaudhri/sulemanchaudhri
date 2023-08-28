@@ -1,0 +1,138 @@
+import numpy as np
+import matplotlib
+
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d.axes3d import Axes3D, get_test_data
+#matplotlib.use('PS')
+matplotlib.use('TkAgg')
+from PIL import Image, ImageChops
+import pandas as pd
+import openpyxl
+from matplotlib import cm
+import cv2
+d=np.linspace(70,100000,100000)
+#print(len(d))
+e=np.round(d)
+m_z_leng=(len(e))
+print(len(e))
+f=np.linspace(0,30,3000)
+g=np.round(f,2)
+print(len(g))
+time_axis_leng=(len(g))
+black_image= np.zeros((time_axis_leng,m_z_leng))
+print(len(black_image))
+dataframe1=pd.read_excel(r'YdgR_pep.xlsx')
+excel_sheet_last1=dataframe1.iloc[0:,0].values
+excel_sheet_last1=excel_sheet_last1*100
+excel_sheet_last1=np.round(excel_sheet_last1)
+# print(excel_sheet_last1)
+excel_sheet_first1=dataframe1.iloc[0:,1].values
+excel_sheet_first1=np.round(excel_sheet_first1,2)
+# print(excel_sheet_first1)
+excel_sheet_inten1=dataframe1.iloc[0:,4].values
+for i in range(0,3111):
+    m_z_value1= excel_sheet_last1[i]
+    time_value1= excel_sheet_first1[i]
+   # print(time_value1*100)
+
+    # print(m_z_value1)
+    time_value1=round(time_value1)*100
+    intensiity = excel_sheet_inten1[i]-50
+    if intensiity<0:
+        intensiity=0
+    for k in range(0,100):
+        if time_value1<2990 :
+
+            time_value1=time_value1+1
+            black_image[int(time_value1),int(m_z_value1)]=excel_sheet_inten1[i]
+            # intensiity = intensiity + 100
+    time_value1=[]
+cv2.imshow("Output",black_image)
+cv2.waitKey(0)
+file = open("arr5.npy", "wb")
+# save array to the file
+np.save(file, black_image)
+# close the file
+file.close
+image8=cv2.imwrite('image_8.png',black_image)
+####
+#####
+dataframe2=pd.read_excel(r'E33Q_pep.xlsx')
+excel_sheet_last=dataframe2.iloc[0:,0].values
+excel_sheet_last=excel_sheet_last*100
+excel_sheet_last=np.round(excel_sheet_last)
+# print(excel_sheet_last1)
+# print(len(excel_sheet_last1))
+excel_sheet_first=dataframe2.iloc[0:,1].values
+excel_sheet_first=np.round(excel_sheet_first,2)
+# print(len(excel_sheet_first1))
+excel_sheet_inten=dataframe2.iloc[0:,4].values
+# print(len(excel_sheet_inten1))
+intensity_value = excel_sheet_inten
+
+for i in range(0,3111):
+    m_z_value= excel_sheet_last[i]
+    time_value= excel_sheet_first[i]
+# print(time_value1*100)
+# print(m_z_value1)
+    time_value=round(time_value)*100
+    intensiity1 = intensity_value[i] - 50
+    if intensiity1 < 0:
+        intensiity1 = 0
+    for q in range(0,100):
+      if time_value < 2990 :
+        time_value = time_value + 1
+
+        black_image[int(time_value),int(m_z_value)]=int(intensity_value[i])
+        # intensiity1 = intensiity1 +100
+    time_value=[]
+cv2.imshow("Output",black_image)
+cv2.waitKey(0)
+file = open("arr6.npy", "wb")
+# save array to the file
+np.save(file, black_image)
+# close the file
+file.close
+image9=cv2.imwrite('image_9.png',black_image)
+
+
+
+
+dataframe2=pd.read_excel(r'empty_pep.xlsx')
+excel_sheet_last3=dataframe2.iloc[0:,0].values
+excel_sheet_last3=excel_sheet_last3*100
+excel_sheet_last3=np.round(excel_sheet_last3)
+# print(excel_sheet_last1)
+# print(len(excel_sheet_last1))
+excel_sheet_first3=dataframe2.iloc[0:,1].values
+excel_sheet_first3=np.round(excel_sheet_first3,2)
+# print(len(excel_sheet_first1))
+excel_sheet_inten3=dataframe2.iloc[0:,4].values
+# print(len(excel_sheet_inten1))
+intensity_value3 = excel_sheet_inten3
+
+for i in range(0,3111):
+    m_z_value= excel_sheet_last3[i]
+    time_value= excel_sheet_first3[i]
+# print(time_value1*100)
+# print(m_z_value1)
+    time_value=round(time_value)*100
+    intensiity = intensity_value3[i] - 50
+    if intensiity1 < 0:
+        intensiity1 = 0
+    for q in range(0,100):
+      if time_value < 2990 :
+        time_value = time_value + 1
+
+        black_image[int(time_value),int(m_z_value)]=int(intensity_value3[i])
+        # intensiity1 = intensiity1 +100
+    time_value=[]
+cv2.imshow("Output",black_image)
+cv2.waitKey(0)
+file = open("arr7.npy", "wb")
+# save array to the file
+np.save(file, black_image)
+# close the file
+file.close
+image9=cv2.imwrite('image_10.png',black_image)
+
