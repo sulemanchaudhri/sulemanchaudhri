@@ -1,0 +1,161 @@
+import numpy as np
+import cv2
+from PIL import Image
+
+# def sulman(event, x, y, flags, param):
+#     if event == cv2.EVENT_LBUTTONDOWN:
+#         r = final_image[x, y, 2]
+#         g = final_image[x, y, 1]
+#         b = final_image[x, y, 0]
+#         print("Cordinates: ", x, y)
+#
+#
+# cv2.namedWindow('final_image')
+# cv2.setMouseCallback('final_image', sulman)
+#
+# # File Loading
+# with open('arr5.npy', 'rb') as f:
+#     a = np.load(f)
+#     print(np.shape(a))
+# with open('arr6.npy', 'rb') as f:
+#     b = np.load(f)
+#     print(np.shape(b))
+#
+# # File Loading Ends
+# final_image = np.zeros((3000,99950 , 3), np.uint8)
+#
+# for i in range(1,3000):
+#  for j in range(1,99950):
+#         if a[i,j] == 0 and b[i,j] == 0:
+#             final_image[i,j] = (0, 0, 0)
+#         elif a[i,j] == 0 and b[i,j] != 0:
+#             final_image[i,j] = (0, 0, 255)
+#             print('red')
+#             print(i,j)
+#         elif a[i,j] == b[i,j]:
+#             final_image[i,j] = a[i,j]
+#         else:
+#             final_image[i,j] = (0, 255, 0)
+#             print('green')
+#             print(i,j)
+# cv2.imshow("final_image", final_image)
+# cv2.waitKey(0)
+# image20=cv2.imwrite('image_20.png',final_image)
+#
+
+# def sulman(event, x, y, flags, param):
+#     if event == cv2.EVENT_LBUTTONDOWN:
+#         r = final_image[x, y, 2]
+#         g = final_image[x, y, 1]
+#         b = final_image[x, y, 0]
+#         print("Cordinates: ", x, y)
+#
+#
+# cv2.namedWindow('final_image')
+# cv2.setMouseCallback('final_image', sulman)
+#
+# # File Loading
+# with open('arr1.npy', 'rb') as f:
+#     a = np.load(f)
+#     print(np.shape(a))
+# with open('arr2.npy', 'rb') as f:
+#     b = np.load(f)
+#     print(np.shape(b))
+# # File Loading Ends
+# final_image = np.zeros((2510,987, 3), np.uint8)
+#
+# for i in range(1, 2510):
+#  for j in range(1,987):
+#         if a[i,j] == 0 and b[i,j] == 0:
+#             final_image[i,j] = (0, 0, 0)
+#         elif a[i,j] == 0 and b[i,j] != 0:
+#             final_image[i,j] = (0, 0, 255)
+#             print('red')
+#             print(i,j)
+#         elif a[i,j] == b[i,j]:
+#             final_image[i,j] = a[i,j]
+#         else:
+#             final_image[i,j] = (0, 255, 0)
+#             print('green')
+#             print(i,j)
+# cv2.imshow("final_image", final_image)
+# cv2.waitKey(0)
+# image20=cv2.imwrite('image_20.png',final_image)
+
+def sulman(event, x, y, flags, param):
+    if event == cv2.EVENT_LBUTTONDOWN:
+        r = final_image[x, y, 2]
+        g = final_image[x, y, 1]
+        b = final_image[x, y, 0]
+        print("Cordinates: ", x, y)
+
+
+cv2.namedWindow('final_image')
+cv2.setMouseCallback('final_image', sulman)
+
+# File Loading
+with open('arr5.npy', 'rb') as f:
+    a = np.load(f)
+    print(np.shape(a))
+with open('arr6.npy', 'rb') as f:
+    b = np.load(f)
+    print(np.shape(b))
+with open('arr7.npy', 'rb') as f:
+    c = np.load(f)
+    print(np.shape(c))
+
+# File Loading Ends
+final_image = np.zeros((3000, 40000, 3), np.uint8)
+
+for i in range(1, 3000):
+    for j in range(1, 40000):
+        if a[i, j] == 0 and b[i, j] == 0 and c[i,j] ==0:
+            final_image[i, j] = (0, 0, 0)
+        elif a[i, j] == 0 and b[i, j] != 0 and c[i,j] ==0 :
+            final_image[i, j] = (0, 0, 255)
+            print('red')
+            print(i, j)
+        # elif a[i,j] !=0 and b[i,j] == 0 and c[i,j] ==0  :
+        #     final_image[i, j] = (0,255, 0)
+            # print('green')
+            # print(i, j)
+        # elif a[i,j] ==0 and b[i,j] == 0 and c[i,j] !=0 :
+        #     final_image[i, j] = (0, 0, 255)
+            # print('red')
+            # print(i, j)
+
+        # elif a[i,j] !=0 and b[i,j] != 0 and c[i,j] !=0 :
+        #     if a[i, j] == b[i, j]  == c[i,j]:
+        #         final_image[i, j] = a[i, j]
+            # elif a[i,j] > b[i,j] & a[i,j] > c[i,j]:
+            #     final_image[i, j] = (0, 255, 255)
+            #     print('new ')
+            #     print(i, j)
+            # elif a[i,j] < b[i,j] & a[i,j] <c[i,j] & b[i,j] > c[i,j] :
+            #     final_image[i, j] = (255, 125, 255)
+            #     print('tera')
+            #     print(i,j)
+
+        # elif a[i, j] == b[i, j] :
+        #     final_image[i, j] = a[i, j]
+        else:
+            final_image[i, j] = (0, 0, 0)
+            # print('nothing')
+            # print(i, j)
+# cv2.imshow("final_image", final_image)
+# cv2.waitKey(0)
+chunk_1=final_image[0:99949,0:1000,:]
+# image[start_x:end_x, start_y:end_y]
+# cv2.imshow('ds',chunk_1)
+# cv2.waitKey(0)
+# chunk_1=cv2.imwrite('chunk_1.png',chunk_1)
+image20 = cv2.imwrite('image_20.png', final_image)
+# chunk_2=final_image[0:99949,1000:2000,:]
+# chunk_2=cv2.imwrite('chunk_2.png',chunk_2)
+# chunk_3=final_image[0:99949,2000:3000,:]
+# chunk_3=cv2.imwrite('chunk_3.png',chunk_3)
+# pixel_map = chunk_1.load()
+# print(pixel_map)
+# r, g, b, p = chunk_1.getpixel((i, j))
+# print(r,g,b,rp)
+
